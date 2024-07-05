@@ -16,7 +16,7 @@ const HomePost = () => {
           <p>aarya dev</p>
           <div className='flex space-x-2 '>
             <p>16/6 /2024</p>
-            <p> 12:12</p>
+            <p> 12:02</p>
           </div>
         </div>
         <p className='text-sm md:text-lg'>sdfufhsjdfsn ihf dfhsud f uhemy name is aaray amoktan iu=ma from sarlahui nepal</p>
