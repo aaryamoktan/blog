@@ -10,7 +10,7 @@ const HomePost = () => {
       </div>
       <div className='flex flex-col w-[95%] md:w-[30%]'>
         <h1 className='text-xl font-bold md:mb-2 mb-1 md:text-2xl'>
-          10 Uses of Artifical intelligence in day to day life
+          10 Use of Artifical intelligence in day to day life
         </h1>
         <div className='flex mb-2 text-sm font-semibold text-gray-500 items-center justify-between md:mb-4'>
           <p>aarya dev</p>
