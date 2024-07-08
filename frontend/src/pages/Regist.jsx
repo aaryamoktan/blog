@@ -10,10 +10,14 @@ const Regist = () => {
   const registerHandle = async()=>
   {
     try{
-      const res= await axios.post("http://localhost:5000"+"/api/auth/register",{username,password,email})
-      setUsername(res.data.username)
-      setEmail(res.data.email)
-      setPassword(res.data.password)
+     const res =  fetch('http://localhost:5000/api/users/register',username,password,email , {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json'
+        }
+    })
+                  
+     
       nevigation("/login")
     }
     catch(err)
