@@ -1,12 +1,13 @@
 const express = require('express')
 const mongoose = require("mongoose")
 const dotenv = require('dotenv')
-const cors = require("cors");
+
 const user = require("./models/user")
 const authrouter = require("./routes/auth")
 const userrouter = require("./routes/user")
 const cookiesparser = require("cookie-parser")
 const postrouter = require("./routes/post")
+const cors = require("cors")
 const commentrouter = require("./routes/comment")
 const app = express()
 dotenv.config();
@@ -21,9 +22,10 @@ const connectdb = async () => {
         console.log(err)
     }
 }
-app.use(cors());
+app.use(cors({origin:"http://localhost:5173",Credential:true}));
 app.use(express.json())
 app.use(cookiesparser)
+app.use(cors)
 app.use("/api/auth",authrouter)
 app.use("/api/user",userrouter)
 app.use("/api/post",postrouter)

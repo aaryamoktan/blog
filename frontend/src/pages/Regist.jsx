@@ -1,10 +1,26 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from "axios"
 import Footer from '../components/Footer'
+import { Navigate } from 'react-router-dom'
 const Regist = () => {
   const [username,setUsername] = useState()
   const [password,setPassword] =useState();
   const [email,setEmail] = useState()
+  const registerHandle = async()=>
+  {
+    try{
+      const res= await axios.post("http://localhost:5000"+"/api/auth/register",{username,password,email})
+      setUsername(res.data.username)
+      setEmail(res.data.email)
+      setPassword(res.data.password)
+      nevigation("/login")
+    }
+    catch(err)
+    {
+      console.log(err)
+    }
+  }
   return (
    <>
     <div className="flex items-center justify-between px-6 md:px-[200px] py-4 mt-5 ">
@@ -32,8 +48,8 @@ const Regist = () => {
                 setPassword(e.target.value)
               }
             }  placeholder= "Enter your password"/>
-            <button className='w-full px-4 py-4 text-lg font-bold text-white bg-black rounded-lg hover:bg-gray-500 hover:text-black'>
-               Login </button>
+            <button onClick={registerHandle} className='w-full px-4 py-4 text-lg font-bold text-white bg-black rounded-lg hover:bg-gray-500 hover:text-black'>
+               Register </button>
                <div className='flex justify-center items-center space-x-4'>
                 <p>Already have an account?</p>
                 <p className='text-gray-500 hover:text-black'><Link to="/login">Login</Link></p>
