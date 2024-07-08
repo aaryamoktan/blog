@@ -5,7 +5,7 @@ import { useState } from "react";
 import Menu from "./Menu";
 const Nevbar = () => {
   const [menu ,setMenu] = useState(false)
-  const user = true;
+  const user = false;
   const showmenu =()=>
     {
       setMenu(!menu)
