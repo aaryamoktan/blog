@@ -25,12 +25,13 @@ const connectdb = async () => {
 app.use(cors({origin:"http://localhost:5173",Credential:true}));
 app.use(express.json())
 app.use(cookiesparser)
-app.use(cors)
-app.use("/api/auth",authrouter)
+app.use(cors({origin:"http://localhost:5173",Credential:true}))
+app.use("/auth",authrouter)
 app.use("/api/user",userrouter)
 app.use("/api/post",postrouter)
 app.use("/api/comment",commentrouter)
 const port = process.env.PORT;
+
 connectdb();
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}!`)
